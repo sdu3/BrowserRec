@@ -14,6 +14,10 @@ public class ElecUse
 		//electricity cost based on size of screen 
 		System.out.println("Enter the size of screen in inches (please enter an integer): ");
 		int screenSize = scan.nextInt();
+		
+		//electricity cost based on size of hard disk
+		System.out.println("Enter the size of hard disk in inches (please enter either 2.5 or 3.5): ");
+		double diskSize = scan.nextDouble();
 	}
 	
 	public int CpuSpeedCore(String CPUspeed, int numberCores, String CPUbrand)
