@@ -9,7 +9,6 @@ public class ElecUse
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the cost of your candidate computer:");
 		int comCost = scan.nextInt();
-		System.out.println("Computer cost = " + comCost);
 
 		//electricity cost based on size of screen 
 		System.out.println("Enter the size of screen in inches (please enter an integer): ");
@@ -54,7 +53,13 @@ public class ElecUse
 		double bCost = mBattery + cBattery;
 		
 		//calculating total cost (eCost currently non-existent)
-		double total cost = comCost + eCost + bCost;
+		double totalCost = comCost + eCost + bCost;
+		
+		//final print statements to display answers
+		System.out.println("Computer cost = " + comCost);
+		System.out.println("Electricity cost = " + eCost);
+		System.out.println("Battery cost = " + bCost);
+		System.out.println("Total cost = " + totalCost);
 	}
 	
 	public int CpuSpeedCore(String CPUspeed, int numberCores, String CPUbrand)
