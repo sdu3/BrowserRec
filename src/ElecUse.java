@@ -49,6 +49,12 @@ public class ElecUse
 			}
 			System.out.println(mBattery);
 		}
+		 
+		//calculating battery cost (cBattery currently non-existent)
+		double bCost = mBattery + cBattery;
+		
+		//calculating total cost (eCost currently non-existent)
+		double total cost = comCost + eCost + bCost;
 	}
 	
 	public int CpuSpeedCore(String CPUspeed, int numberCores, String CPUbrand)
