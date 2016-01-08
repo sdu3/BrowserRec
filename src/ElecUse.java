@@ -1,12 +1,81 @@
-
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class ElecUse
 {
 	public static void main(String[] args)
 	{
+		 // Create a hash map
+	      HashMap states = new HashMap();
+	      
+	      // Put elements to the map
+	      states.put("MA", new Double(18.37));
+	      states.put("CT", new Double(20.05));
+	      states.put("ME", new Double(14.87));
+	      states.put("NH", new Double(17.73));
+	      states.put("RI", new Double(19.68));
+	      states.put("VT", new Double(17.33));
+	      states.put("NJ", new Double(15.55));
+	      states.put("NY", new Double(18.38));
+	      states.put("PA", new Double(14.49));
+	      states.put("IL", new Double(13.47));
+	      states.put("IN", new Double(11.77));
+	      states.put("MI", new Double(14.59));
+	      
+	      states.put("OH", new Double(12.89));
+	      states.put("WI", new Double(14.87));
+	      states.put("IA", new Double(11.70));
+	      states.put("KS", new Double(12.34));
+	      states.put("MN", new Double(12.76));
+	      states.put("MS", new Double(11.07));
+	      states.put("NE", new Double(10.95));
+	      states.put("ND", new Double(10.59));
+	      
+	      states.put("SD", new Double(11.70));
+	      states.put("DE", new Double(14.40));
+	      states.put("DC", new Double(13.90));
+	      states.put("FL", new Double(11.61));
+	      states.put("GA", new Double(11.09));
+	      states.put("MD", new Double(15.35));
+	      states.put("NC", new Double(12.11));
+	      states.put("SC", new Double(12.65));
+	      
+	      states.put("VA", new Double(11.52));
+	      states.put("WV", new Double(10.98));
+	      states.put("AL", new Double(12.00));
+	      states.put("KY", new Double(10.74));
+	      states.put("MS", new Double(11.16));
+	      states.put("TN", new Double(10.63));
+	      states.put("AR", new Double(10.00));
+	      states.put("LA", new Double(9.55));
+	      states.put("OK", new Double(11.12));
+	      states.put("TX", new Double(11.41));
+	      states.put("AZ", new Double(12.22));
+	      states.put("CO", new Double(11.74));
+	      states.put("ID", new Double(10.32));
+	      states.put("MT", new Double(11.29));
+	      
+	      states.put("NV", new Double(12.99));
+	      states.put("NM", new Double(12.71));
+	      states.put("UT", new Double(10.58));
+	      states.put("WY", new Double(11.56));
+	      states.put("CA", new Double(14.98));
+	      states.put("OR", new Double(10.93));
+	      states.put("WA", new Double(9.41));
+	      states.put("AK", new Double(20.62));
+	      states.put("HI", new Double(28.22));
+	      
+	      //user input
+	      Scanner scan = new Scanner(System.in);
+		  System.out.println("Enter the abbreviation of your state:");
+		  String state = scan.nextLine();
+		  
+		  double elecRate = ((Double)states.get(state)).doubleValue();
+		  System.out.println(elecRate);
+		  //END OF STATES' HASHMAP
+		
 		//computer cost based on user input from question 1
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the cost of your candidate computer:");
 		int comCost = scan.nextInt();
 
@@ -48,9 +117,11 @@ public class ElecUse
 			}
 			System.out.println(mBattery);
 		}
+	}
+}
 		 
 		//calculating battery cost (cBattery currently non-existent)
-		double bCost = mBattery + cBattery;
+		/*double bCost = mBattery + cBattery;
 		
 		//calculating total cost (eCost currently non-existent)
 		double totalCost = comCost + eCost + bCost;
@@ -71,4 +142,4 @@ public class ElecUse
 		return CpuSpeedCore;
 	}
 
-}
+}*/
