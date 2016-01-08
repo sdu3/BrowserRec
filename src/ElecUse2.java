@@ -9,14 +9,90 @@ public class ElecUse
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the cost of your candidate computer:");
 		int comCost = scan.nextInt();
-
+		
+		//desktop or laptop
+		boolean laptop=false;
+		boolean desktop=false;
+		System.out.println("Is your computer a laptop or desktop?");
+		String dl = scan.nextLine();
+		if (dl="laptop")
+		{
+			laptop=true;
+		}
+		if (dl="desktop")
+		{
+			desktop=true;
+		}
+		
 		//electricity cost based on size of screen 
-		System.out.println("Enter the size of screen in inches (please enter an integer): ");
+		System.out.println("Enter the type of screen (LCD, CRT, or LED): ");
+		String screenType = scan.nextLine();
+		
+		//electricity cost based on size of screen 
+		System.out.println("Enter the size of screen in inches (please enter an integer in the range 11-35): ");
 		int screenSize = scan.nextInt();
+		
+		if (screenSize<17 && screenType=="LCD")
+		{
+			int screenElec=20;
+		}
+		if (screenSize>=17 && screenSize<=19 && screenType=="LCD")
+		{
+			int screenElec=30;
+		}
+		if (screenSize>=20 && screenSize<=24 && screenType=="LCD")
+		{
+			int screenElec=50;
+		}
+		if (screenSize>=25 && screenSize<=35 && screenType=="LCD")
+		{
+			int screenElec=80;
+		}
+		if (screenSize<17 && screenType=="LED")
+		{
+			int screenElec=18;
+		}
+		if (screenSize>=17 && screenSize<=20 && screenType=="LED")
+		{
+			int screenElec=24;
+		}
+		if (screenSize>=21 && screenSize<=26 && screenType=="LED")
+		{
+			int screenElec=30;
+		}
+		if (screenSize>=27 && screenSize<=37 && screenType=="LED")
+		{
+			int screenElec=70;
+		}
+		if (screenSize<17 && screenType=="CRT")
+		{
+			int screenElec=60;
+		}
+		if (screenSize>=17 && screenSize<=20 && screenType=="CRT")
+		{
+			int screenElec=80;
+		}
+		if (screenSize>=21 && screenSize<=24 && screenType=="CRT")
+		{
+			int screenElec=110;
+		}
+		if (screenSize>=25 && screenSize<=35 && screenType=="CRT")
+		{
+			int screenElec=130;
+		}
+		
 		
 		//electricity cost based on size of hard disk
 		System.out.println("Enter the size of hard disk in inches (please enter either 2.5 or 3.5): ");
 		double diskSize = scan.nextDouble();
+		if (diskSize==2.5)
+		{
+			double diskElec=1.85;
+		}
+		if (diskSize==3.5)
+		{
+			double diskElec=7.75;
+		}
 		
 		//taking in how long the user will use the computer
 		System.out.println("How many years do you expect to keep your computer? (please enter an integer) ");
@@ -48,9 +124,24 @@ public class ElecUse
 			}
 			System.out.println(mBattery);
 		}
+		
+		
+		//computer battery (using least integer function!!!!!!!)
+		double cBattery;
+		
+		if (desktop=true)
+		{
+			cBattery=0.0;
+		}
+		if (laptop=true)
+		{
+			double tempBattery=((years-5)/5)*150;
+			cBattery=Math.ceil(tempBattery);
+		}
+		
 		 
 		//calculating battery cost (cBattery currently non-existent)
-		double bCost = mBattery + cBattery;
+		double bCost = mBattery + cBattery; 
 		
 		//calculating total cost (eCost currently non-existent)
 		double totalCost = comCost + eCost + bCost;
@@ -71,37 +162,41 @@ public class ElecUse
 		String CPUbrand = scan.nextLine();
 		
 		//why aren't these if statements working????!!!!!
-		if (CPUspeed="low" && numberCores=2 && CPUbrand="Intel") 
+		if (CPUspeed=="low" && numberCores=2 && CPUbrand=="Intel") 
 		{
 			int SpeedCoreBrand=64;
 		}
-		if (CPUspeed="medium" && numberCores=4 && CPUbrand="Intel") 
+		if (CPUspeed=="medium" && numberCores=4 && CPUbrand=="Intel") 
 		{
 			int SpeedCoreBrand=84;
 		}
-		if (CPUspeed="high" && numberCores=6 && CPUbrand="Intel") 
+		if (CPUspeed=="high" && numberCores=6 && CPUbrand=="Intel") 
 		{
 			int SpeedCoreBrand=86;
 		}
-		if (CPUspeed="top end" && numberCores=8 && CPUbrand="Intel") 
+		if (CPUspeed=="top end" && numberCores<8 && CPUbrand=="Intel") 
 		{
 			int SpeedCoreBrand=140;
 		}
-		if (CPUspeed="low" && numberCores=2 && CPUbrand="AMD") 
+		if (CPUspeed=="low" && numberCores=2 && CPUbrand=="AMD") 
 		{
 			int SpeedCoreBrand=80;
 		}
-		if (CPUspeed="medium" && numberCores=4 && CPUbrand="AMD") 
+		if (CPUspeed=="medium" && numberCores=4 && CPUbrand=="AMD") 
 		{
 			int SpeedCoreBrand=95;
 		}
-		if (CPUspeed="high" && numberCores=6 && CPUbrand="AMD") 
+		if (CPUspeed=="high" && numberCores=6 && CPUbrand=="AMD") 
 		{
 			int SpeedCoreBrand=110;
 		}
 		
 	
 	
+
+
+
+
 
 	//What does this do?
 			public int CpuSpeedCore(String CPUspeed, int numberCores, String CPUbrand)
