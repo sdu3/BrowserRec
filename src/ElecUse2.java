@@ -1,9 +1,9 @@
 
 import java.util.Scanner;
 
-public class ElecUse
+public class ElecUse2
 {
-	public static void main(String[] args)
+	public static void main (String[] args)
 	{
 		//computer cost based on user input from question 1
 		Scanner scan = new Scanner(System.in);
@@ -11,111 +11,162 @@ public class ElecUse
 		int comCost = scan.nextInt();
 		
 		//desktop or laptop
-		boolean laptop=false;
-		boolean desktop=false;
+		String laptop="no";
+		String desktop="no";
 		System.out.println("Is your computer a laptop or desktop?");
 		String dl = scan.nextLine();
-		if (dl="laptop")
+	
+		if (dl=="laptop")
 		{
-			laptop=true;
+			laptop="yes";
 		}
-		if (dl="desktop")
+		if (dl=="desktop")
 		{
-			desktop=true;
+			desktop="yes";
 		}
 		
-		//electricity cost based on size of screen 
+		//type of screen 
 		System.out.println("Enter the type of screen (LCD, CRT, or LED): ");
 		String screenType = scan.nextLine();
 		
-		//electricity cost based on size of screen 
+		//size of screen electricity use
 		System.out.println("Enter the size of screen in inches (please enter an integer in the range 11-35): ");
 		int screenSize = scan.nextInt();
+		double screenElec = 0; 
 		
 		if (screenSize<17 && screenType=="LCD")
 		{
-			int screenElec=20;
+			screenElec=20;
 		}
 		if (screenSize>=17 && screenSize<=19 && screenType=="LCD")
 		{
-			int screenElec=30;
+			screenElec=30;
 		}
 		if (screenSize>=20 && screenSize<=24 && screenType=="LCD")
 		{
-			int screenElec=50;
+			screenElec=50;
 		}
 		if (screenSize>=25 && screenSize<=35 && screenType=="LCD")
 		{
-			int screenElec=80;
+			screenElec=80;
 		}
 		if (screenSize<17 && screenType=="LED")
 		{
-			int screenElec=18;
+			screenElec=18;
 		}
 		if (screenSize>=17 && screenSize<=20 && screenType=="LED")
 		{
-			int screenElec=24;
+			screenElec=24;
 		}
 		if (screenSize>=21 && screenSize<=26 && screenType=="LED")
 		{
-			int screenElec=30;
+			screenElec=30;
 		}
 		if (screenSize>=27 && screenSize<=37 && screenType=="LED")
 		{
-			int screenElec=70;
+			screenElec=70;
 		}
 		if (screenSize<17 && screenType=="CRT")
 		{
-			int screenElec=60;
+			screenElec=60;
 		}
 		if (screenSize>=17 && screenSize<=20 && screenType=="CRT")
 		{
-			int screenElec=80;
+			screenElec=80;
 		}
 		if (screenSize>=21 && screenSize<=24 && screenType=="CRT")
 		{
-			int screenElec=110;
+			screenElec=110;
 		}
 		if (screenSize>=25 && screenSize<=35 && screenType=="CRT")
 		{
-			int screenElec=130;
+			screenElec=130;
 		}
 		
 		
-		//electricity cost based on size of hard disk
+		//size of hard disk electricity use
 		System.out.println("Enter the size of hard disk in inches (please enter either 2.5 or 3.5): ");
 		double diskSize = scan.nextDouble();
+		double diskElec = 0;
+		
 		if (diskSize==2.5)
 		{
-			double diskElec=1.85;
+			diskElec=1.85;
 		}
 		if (diskSize==3.5)
 		{
-			double diskElec=7.75;
+			diskElec=7.75;
 		}
 		
+		//Ask for CPU speed, number of cores, CPU brand. Should we have them enter this all at once and store it in a list somehow??
+		System.out.println("Enter your computer's CPU Speed:");
+		String CPUspeed = scan.nextLine();
+		System.out.println("Enter your computer's number of cores:");
+		int numberCores = scan.nextInt();
+		System.out.println("Enter your computer's CPU brand:");
+		String CPUbrand = scan.nextLine();
+		double SpeedCoreBrand = 0;
+				
+		if (CPUspeed=="low" && numberCores==2 && CPUbrand=="Intel") 
+		{
+			SpeedCoreBrand=64;
+		}
+		if (CPUspeed=="medium" && numberCores==4 && CPUbrand=="Intel") 
+		{
+			SpeedCoreBrand=84;
+		}
+		if (CPUspeed=="high" && numberCores==6 && CPUbrand=="Intel") 
+		{
+			SpeedCoreBrand=86;
+		}
+		if (CPUspeed=="top end" && numberCores==8 && CPUbrand=="Intel") 
+		{
+			SpeedCoreBrand=140;
+		}
+		if (CPUspeed=="low" && numberCores==2 && CPUbrand=="AMD") 
+		{
+			SpeedCoreBrand=80;
+		}
+		if (CPUspeed=="medium" && numberCores==4 && CPUbrand=="AMD") 
+		{
+			SpeedCoreBrand=95;
+		}
+		if (CPUspeed=="high" && numberCores==6 && CPUbrand=="AMD") 
+		{
+			SpeedCoreBrand=110;
+		}
+		
+
 		//taking in how long the user will use the computer
 		System.out.println("How many years do you expect to keep your computer? (please enter an integer) ");
 		int years = scan.nextInt();
 		int months = years*12;
+		
+		//should we say "how long do you use you computer everyday on average?"
 		System.out.println("On average, how many hours a day do you leave the power on? (please enter an integer) ");
 		int hours = scan.nextInt();
 		
+		//State
+		System.out.println("What state will you be using your computer in primarily?");
+		String state=scan.nextLine();
+		double stateCost = 5; //temporary assignment for tetsing 
+		
+		
 		//considering mouse battery
-		boolean mouse=false;
+		String mouse="no";
 		System.out.println("Does your mouse need a battery? (enter no if you don't have a mouse): ");
 		//problem: accurately calculates mBattery but does not allow user input, 
 		//thus this doesn't work for a user without a mouse
-		String yn = scan.nextLine();
+		String yn = scan.next();
 		if (yn=="yes")
 		{
-			mouse=true;
+			mouse="yes";
 		}
 		
 		int mBattery;
 		mBattery=0;
 	
-		if (mouse=true)
+		if (mouse=="yes")
 		{
 			mBattery=2*(months-2);
 			if (mBattery<=0)
@@ -124,24 +175,34 @@ public class ElecUse
 			}
 			System.out.println(mBattery);
 		}
-		
+		if (yn=="no")
+		{
+			mBattery=0;
+		}
 		
 		//computer battery (using least integer function!!!!!!!)
-		double cBattery;
+		double cBattery = 0;
 		
-		if (desktop=true)
+		if (desktop=="yes")
 		{
-			cBattery=0.0;
+			cBattery=0;
 		}
-		if (laptop=true)
+		if (laptop=="yes")
 		{
 			double tempBattery=((years-5)/5)*150;
 			cBattery=Math.ceil(tempBattery);
 		}
 		
 		 
-		//calculating battery cost (cBattery currently non-existent)
+		//calculating battery cost
 		double bCost = mBattery + cBattery; 
+		
+		//electricity cost
+		double totalWatts=screenElec + diskElec + SpeedCoreBrand; //+ RAM
+		double eCost= totalWatts*hours/1000*365*years*stateCost; 
+		
+		
+		
 		
 		//calculating total cost (eCost currently non-existent)
 		double totalCost = comCost + eCost + bCost;
@@ -153,52 +214,12 @@ public class ElecUse
 		System.out.println("Total cost = " + totalCost);
 		
 		
-		//Ask for CPU speed, number of cores, CPU brand. Should we have them enter this all at once and store it in a list somehow??
-		System.out.println("Enter your computer's CPU Speed:");
-		String CPUspeed = scan.nextLine();
-		System.out.println("Enter your computer's number of cores:");
-		int numberCores = scan.nextInt();
-		System.out.println("Enter your computer's CPU brand:");
-		String CPUbrand = scan.nextLine();
-		
-		//why aren't these if statements working????!!!!!
-		if (CPUspeed=="low" && numberCores=2 && CPUbrand=="Intel") 
-		{
-			int SpeedCoreBrand=64;
-		}
-		if (CPUspeed=="medium" && numberCores=4 && CPUbrand=="Intel") 
-		{
-			int SpeedCoreBrand=84;
-		}
-		if (CPUspeed=="high" && numberCores=6 && CPUbrand=="Intel") 
-		{
-			int SpeedCoreBrand=86;
-		}
-		if (CPUspeed=="top end" && numberCores<8 && CPUbrand=="Intel") 
-		{
-			int SpeedCoreBrand=140;
-		}
-		if (CPUspeed=="low" && numberCores=2 && CPUbrand=="AMD") 
-		{
-			int SpeedCoreBrand=80;
-		}
-		if (CPUspeed=="medium" && numberCores=4 && CPUbrand=="AMD") 
-		{
-			int SpeedCoreBrand=95;
-		}
-		if (CPUspeed=="high" && numberCores=6 && CPUbrand=="AMD") 
-		{
-			int SpeedCoreBrand=110;
-		}
-		
+	}
 	
-	
+}
+		
 
-
-
-
-
-	//What does this do?
-			public int CpuSpeedCore(String CPUspeed, int numberCores, String CPUbrand)
+		//What does this do?
+		//public int CpuSpeedCore(String CPUspeed, int numberCores, String CPUbrand)
 	
    
