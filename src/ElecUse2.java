@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class ElecUse2
 {
 	public static void main (String[] args)
@@ -107,7 +106,6 @@ public class ElecUse2
 	    panel.add(btn);
 	    
 		//computer cost based on user input from question 1
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the cost of your candidate computer:");
 		int comCost = scan.nextInt();
 		
@@ -250,12 +248,6 @@ public class ElecUse2
 		System.out.println("On average, how many hours a day do you leave the power on? (please enter an integer) ");
 		int hours = scan.nextInt();
 		
-		//State
-		System.out.println("What state will you be using your computer in primarily?");
-		String state=scan.next();
-		double stateCost = 5; //temporary assignment for testing 
-		
-		
 		//considering mouse battery
 		String mouse="no";
 		System.out.println("Does your mouse need a battery? (enter no if you don't have a mouse): ");
@@ -304,9 +296,7 @@ public class ElecUse2
 		
 		//electricity cost
 		double totalWatts=screenElec + diskElec + SpeedCoreBrand; //+ RAM
-		double eCost= totalWatts*hours/1000*365*years*stateCost; 
-		
-		
+		double eCost= totalWatts*hours/1000*365*years*elecRate; 
 		
 		
 		//calculating total cost (eCost currently non-existent)
@@ -316,9 +306,11 @@ public class ElecUse2
 		System.out.println("Computer cost = " + comCost);
 		System.out.println("Electricity cost = " + eCost);
 		System.out.println("Battery cost = " + bCost);
-		System.out.println("Total cost = " + totalCost);
-		
-		
+		System.out.println("Total cost = " + totalCost);	
 	}
-	
 }
+		
+
+		//What does this do?
+		//public int CpuSpeedCore(String CPUspeed, int numberCores, String CPUbrand)
+	
