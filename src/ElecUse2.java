@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ElecUse2
-{
+{ 
 	public static void main (String[] args)
 	{
 		 // Create a hash map
@@ -285,9 +285,11 @@ public class ElecUse2
 		}
 		if (laptop=="yes")
 		{
-			cBattery=Math.ceil((double)(years-5)/5*150); 
-			System.out.print(cBattery);
-			System.out.print("hi");
+			cBattery=Math.ceil((double)(years-5)/5)*150; 
+			if (cBattery<0)
+			{
+				cBattery=0;
+			}
 		}
 		
 		 
@@ -295,7 +297,7 @@ public class ElecUse2
 		double bCost = mBattery + cBattery; 
 		
 		//electricity cost
-		double totalWatts=screenElec + diskElec + SpeedCoreBrand; //+ RAM
+		double totalWatts=screenElec + diskElec + SpeedCoreBrand +2.5; //+ 2.5 is RAM
 		double eCost= totalWatts*hours/1000*365*years*elecRate; 
 		
 		
