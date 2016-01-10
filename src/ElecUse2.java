@@ -97,13 +97,14 @@ public class ElecUse2
 	    
 	    String[] CPU = { "Brand:Intel, Speed:Low, Cores:2","Brand:Intel, Speed:Medium, Cores:4","Brand:Intel, Speed:High, Cores:6","Brand:Intel, Speed:Top End, Cores:8","Brand:AMD, Speed:Low, Cores:2","Brand:AMD, Speed:Medium, Cores:4","Brand:AMD, Speed:High, Cores:6" };
 		
-	    final JComboBox CPUlist = new JComboBox(CPU);
+	    /*final JComboBox CPUlist = new JComboBox(CPU);
 
 	    CPUlist.setVisible(true);
 	    panel.add(CPUlist);
 
 	    JButton btn = new JButton("OK");
 	    panel.add(btn);
+	    */
 	    
 		//computer cost based on user input from question 1
 		System.out.println("Enter the cost of your candidate computer:");
