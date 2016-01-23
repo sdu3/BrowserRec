@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script src="http://www.java.com/js/deployJava.js"></script>
+
+<script>
+
+//DETECT JAVA PLUG-IN
+var Java = deployJava.getJREs();
+
+if (Java!="1.8.0_66"&&Java!="1.8.0_71")
+{
+	Java="changeJava";
+}
+
+document.write(Java);
+
+//DETECT BROWSER
+var Browser='undefined'
+var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+    // At least Safari 3+: "[object HTMLElementConstructor]"
+var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+var isIE = /*@cc_on!@*/false || !!document.documentMode;   // At least IE6
+
+if (isOpera==true){
+	Browser='Opera';
+} else if (isFirefox==true){
+	Browser='Firefox';
+} else if (isSafari==true){
+	Browser='Safari';
+}else if (isChrome==true){
+	Browser='Chrome';
+}else if (isIE==true){
+	Browser='IE';
+}
+
+//INSERT SCRIPT FOR RUNNING APPLET
+
+//script for pop-up tabs below...
+
+//if CHROME or SAFARI, "switch browser" page opens
+if (Browser == "Chrome")
+{
+	alert("You need to switch a browser");
+	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/bSwitch.html");
+}
+
+else if (Browser == "Safari") 
+{
+	alert("You need to switch a browser");
+	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/bSwitch.html");
+}
+
+/* update firefox
+if (Browser = )
+{
+	alert("You need to update your browser");
+	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/upgradeFirefox.html");
+}
+*/
+
+/* update Opera
+if (Browser = )
+{
+	alert("You need to update your browser");
+	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/upgradeOpera.html");
+}
+
+
+//if no plug-in - "download plug-in"
+if (Java=)
+{
+	alert("You need to download the Java plug-in");
+	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/pDownload.html");
+}
+*/
+
+//if old plug-in - "upgrade" 
+if (Java=="changeJava")
+	{
+	alert("You need to update your Java plug-in");
+	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/pUpgrade.html");
+	}
+
+//CURENT STATE: browser if statement works, Safari weird, Java pop-up comes up even when Java is not "changeJava"
+
+</script>
+
+</body>
+</html>
+

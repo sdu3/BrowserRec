@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ElecUse.html</title>
+</head>
+<body>
+  <h1>Electricity Use Program</h1>
+  <p>Here it is: <applet code="ElecUse2.class" height="300" width="500">
+    This is where ElecUse2.class should run.
+  </applet></p>
+
+<script>
+
+
+//DETECT JAVA PLUG-IN
+var Java = deployJava.getJREs();
+
+if (Java!="1.8.0_66"&&Java!="1.8.0_71")
+{
+	Java="changeJava";
+}
+
+//alert(Java);
+
+//DETECT BROWSER & BROWSER VERSION
+
+function get_browser_info(){
+    var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+    if(/trident/i.test(M[1])){
+        tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
+        return {name:'IE',version:(tem[1]||'')};
+        }   
+    if(M[1]==='Chrome'){
+        tem=ua.match(/\bOPR\/(\d+)/)
+        if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+        }   
+    M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+    if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+    return {
+      name: M[0],
+      version: M[1]
+    };
+ }
+
+var browser=get_browser_info();
+alert(browser.name);
+alert(browser.version)
+
+//INSERT SCRIPT FOR RUNNING APPLET
+
+//script for pop-up tabs below...
+
+
+//if CHROME or SAFARI, "switch browser" page opens
+if (browser.name == "Chrome")
+{
+  alert("You need to switch a browser");
+  window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/bSwitch.html");
+}
+
+else if (browser.name == "Safari") 
+{
+  alert("You need to switch a browser");
+  window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/bSwitch.html");
+}
+
+
+else if (browser.name == "Firefox" && browser.version != 43)
+{
+  alert("You need to update your browser");
+  window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/upgradeFirefox.html");
+}
+
+ 
+else if (browser.name == "Opera" && browser.version != 34 )
+{
+  alert("You need to update your browser");
+  window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/upgradeOpera.html");
+}
+
+
+//if no plug-in - "download plug-in" html page opens
+if (Java=)
+{
+  alert("You need to download the Java plug-in");
+  window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/pDownload.html");
+}
+
+
+//if old plug-in - "upgrade" 
+if (Java=="changeJava")
+  {
+  alert("You need to update your Java plug-in");
+  window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/pUpgrade.html");
+  }
+
+
+
+</script>
+
+</body>
+</html>

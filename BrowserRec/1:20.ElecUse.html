@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ElecUse.html</title>
+
+</head>
+
+<h1 id = "h1">Not working</h1>
+<p id = "p1"> Here it is: <applet code="ElecUse2.class" height="300" width="500"
+    This is where ElecUse2.class runs. </applet></p>
+
+<script src="http://www.java.com/js/deployJava.js">
+</script>
+<script>
+
+var Java = deployJava.getJREs();
+
+var Browser='undefined'
+var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+    // At least Safari 3+: "[object HTMLElementConstructor]"
+var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+var isIE = /*@cc_on!@*/false || !!document.documentMode;   // At least IE6
+
+if (isOpera==true){
+	Browser='Opera';
+} else if (isFirefox==true){
+	Browser='Firefox';
+} else if (isSafari==true){
+	Browser='Safari';
+}else if (isChrome==true){
+	Browser='Chrome';
+}else if (isIE==true){
+	Browser='IE';
+}
+
+
+if (Browser=='Firefox' && Java=='1.8.0_66'){
+	//IF STATEMENT WORKS, DOCUMENT GET ELEMENT SCREWS THINGS UP
+	alert(Browser);
+	//document.getElementById("h1").innerHTML = "Electricity Use Program"; 
+	//document.getElementById("p1").innerHTML = "<applet code="ElecUse2.class" height="300" width="500"
+    //This is where ElecUse2.class runs. </applet>"; 
+
+} else if (Browser=='Chrome')
+{
+	alert("ha");
+}
+</script>
+
+
+<body>
+
+ 
+</body>
+</html>

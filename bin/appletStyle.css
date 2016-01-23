@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    color: navy;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    text-align: center;
+    border: 0px;
+    background-color: #F0FFFF;
+}
+
+p1 {
+    color: navy;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    text-align: center;
+    border: 0px;
+    background-color: white;
+}
