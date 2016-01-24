@@ -92,7 +92,7 @@ public class ElecUse2 extends Applet
 		label = new JTextPane();
 		label.setBounds(6, 22, 357, 207);
 		label.setFont(new Font("Century Gothic", Font.PLAIN, 15));
-		label.setBackground(new Color(240, 255, 255));
+		label.setBackground(new Color(240, 248, 255));
 		label.setForeground(new Color(0, 0, 0));
 		label.setEditable(false);
 		add(label);
@@ -349,8 +349,8 @@ public class ElecUse2 extends Applet
 		double totalCost = Math.round(comCost + eCost + bCost);
 
 		// final print statements to display answers
-		String output = name + ", here is the approximate costs of your computer:\n" +
-		"Computer cost = $" + comCost + "\n" + 
+		String output = name + ", here are the approximate costs of your computer:\n" +
+		" " + "\n"+"Computer cost = $" + comCost + "\n" + 
 		"Electricity cost = $" + eCost + "\n" +
 		"Battery cost = $" + bCost + "\n" +
 		"Total cost = $" + totalCost;

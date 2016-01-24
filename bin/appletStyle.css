@@ -1,19 +1,50 @@
 body {
-    background-color: white;
+
+/* blue gradient background, credit to: http://www.w3schools.com/css/css3_gradients.asp
+    height: 800px;
+    background: -webkit-linear-gradient(bottom, rgba(44,195,241,0), rgba(44,195,241,0.8)); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(bottom, rgba(44,195,241,0), rgba(44,195,241,0.8)); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(bottom, rgba(44,195,241,0), rgba(44,195,241,0.8)); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(to bottom, rgba(44,195,241,0), rgba(44,195,241,0.8)); /* Standard syntax (must be last) */
+   
+/*background image: http://www.w3schools.com/css/css_background.asp*/
+    background-image: url("coolgrad.png");
+    background-repeat: repeat;
+
 }
 
 h1 {
     color: navy;
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     text-align: center;
-    border: 0px;
-    background-color: #F0FFFF;
+    padding: 10px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-radius: 2px;
+    border-color: purple;
+    /*background-color: #F0FFFF;*/
+}
+
+p {
+    color: navy;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    text-align: center;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-left:10px solid;
+    border-right:10px solid;
+    border-radius: 2px;
+    border-color: purple;
+    background-color: white;
 }
 
 p1 {
     color: navy;
-    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     text-align: center;
-    border: 0px;
-    background-color: white;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    border: 10px;
+    /*background-color: white;*/
 }
+
