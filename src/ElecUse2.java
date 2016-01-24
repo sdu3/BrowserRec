@@ -7,8 +7,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.Font;
-/*Markus Feng: credit for idea of using arrays to store questions & answers, 
- * teaching me how to use textField, label and button
+/*Markus Feng: credit for idea of using arrays to store questions & answers and for
+ * teaching me how to use textField, label and button in my applet
 */
 
 public class ElecUse2 extends Applet
@@ -42,7 +42,7 @@ public class ElecUse2 extends Applet
 	//to keep track of question #
 	private int index = 0;
 
-	//declares textField (answer) and label (question), button never referenced
+	//declares textField (answer field) and label (question field) objects
 	private JTextField textField;
 	private JTextPane label;
 
@@ -51,12 +51,11 @@ public class ElecUse2 extends Applet
 		setForeground(new Color(0, 0, 0));
 		setFont(null);
 		setLayout(null);
-		//create text field
+		//creates text field
 		textField = new JTextField();
 		textField.setBackground(new Color(255, 255, 255));
 		textField.setBounds(6, 241, 141, 30);
 		textField.setForeground(new Color(25, 25, 112));
-		//what is next 2 lines??
 		add(textField);
 		textField.setColumns(10);
 		
@@ -65,7 +64,13 @@ public class ElecUse2 extends Applet
 		btnSubmit.setBounds(191, 242, 117, 29);
 		btnSubmit.setFont(new Font("Century Gothic", Font.PLAIN, 13));
 		
-		//things triggered by pressing of submit button
+		/*things triggered by pressing of submit button - after "submit" button is pressed each time,
+		 * the user input (from textField) will be stored into the corresponding answer item based on our index, 
+		 * which keeps track of the question #
+		 * e.g. the answer for question 0 will be stored in position 0 of the array answers.
+		 * essentially, all answers are stored in the array "answers" and then assigned to the correct variable (in calculate function). 
+		 * These variables are then used for the final calculations
+		 */
 		btnSubmit.addActionListener(new ActionListener() {
 		
 			public void actionPerformed(ActionEvent arg0)
@@ -73,7 +78,7 @@ public class ElecUse2 extends Applet
 				answers[index] = textField.getText();
 				textField.setText("");
 				index++;
-				//when end of questions, run calculate
+				//when end of questions, run function calculate 
 				if (index == questions.length)
 				{
 					label.setText(calculate());
@@ -166,11 +171,13 @@ public class ElecUse2 extends Applet
 		states.put("AK", new Double(20.62));
 		states.put("HI", new Double(28.22));
 
+		//gets the value from position 1 in array answer (2nd question) and stores into variable elecRate
 		double elecRate = states.get(answers[1]).doubleValue();
 
 		int comCost = Integer.parseInt(answers[2]);
 
 		// desktop or laptop
+		//initializes variables
 		String laptop = "no";
 		String desktop = "no";
 		String dl = answers[3];
@@ -183,10 +190,10 @@ public class ElecUse2 extends Applet
 			desktop = "yes";
 		}
 
-		// type of screen
+		// sets type of screen variable to corresponding item in answers array
 		String screenType = answers[4];
 
-		// electricity use based on the size of screen
+		// calculates electricity use based on the size of screen
 		int screenSize = Integer.parseInt(answers[5]);
 		double screenElec = 0;
 
@@ -240,6 +247,7 @@ public class ElecUse2 extends Applet
 		}
 
 		// size of hard disk electricity use
+		//parse used to convert string to double, since answers array contains string items
 		double diskSize = Double.parseDouble(answers[6]);
 		double diskElec = 0;
 
@@ -252,8 +260,7 @@ public class ElecUse2 extends Applet
 			diskElec = 7.75;
 		}
 
-		// Ask for CPU speed, number of cores, CPU brand and store corresponding
-		// electricity use in variable SpeedCoreBrand
+		// Ask for CPU speed, number of cores, CPU brand, and store corresponding electricity use in variable SpeedCoreBrand
 		String CPUspeed = answers[7];
 
 		double SpeedCoreBrand = 0;
@@ -294,7 +301,7 @@ public class ElecUse2 extends Applet
 		// how many hours the user uses the computer/day
 		int hours = Integer.parseInt(answers[9]);
 
-		// considering mouse battery
+		// considering cost of replacing mouse battery
 		String mouse = "no";
 		String yn = answers[10];
 		if (yn.equals("yes"))
@@ -318,8 +325,7 @@ public class ElecUse2 extends Applet
 			mBattery = 0;
 		}
 
-		// cost of replacing computer battery (using least integer
-		// function!!!!!!!)
+		// cost of replacing computer battery 
 		double cBattery = 0;
 
 		if (desktop.equals("yes"))
@@ -355,6 +361,7 @@ public class ElecUse2 extends Applet
 		"Battery cost = $" + bCost + "\n" +
 		"Total cost = $" + totalCost;
 		
+		//calculate function returns output, which will be placed in textField (where questions are asked)
 		return output;
 	}
 

@@ -5,6 +5,8 @@
   <link rel="stylesheet" type="text/css" href="appletStyle.css">
 </head>
 <body>
+
+<!-- Header for java applet + code for running java applet -->
   <h1>Electricity Use Program</h1>
   <p1 id="instructions">Calculate your computer's electricity use</p1>
   <p><applet code="ElecUse2.class" height="300" width="400">
@@ -15,7 +17,7 @@
 
 <script>
 
-//DETECT JAVA PLUG-IN
+//code to DETECT JAVA PLUG-IN
 var Java = deployJava.getJREs();
 var Javastat=navigator.javaEnabled();
 
@@ -26,7 +28,7 @@ if (Java!="1.8.0_66"&&Java!="1.8.0_71")
 
 //document.write(Java);
 
-//DETECT BROWSER
+//code to DETECT BROWSER
 var Browser='undefined'
 var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
     // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
@@ -47,8 +49,6 @@ if (isOpera==true){
 }else if (isIE==true){
 	Browser='IE';
 }
-
-//INSERT SCRIPT FOR RUNNING APPLET
 
 //script for pop-up tabs below...
 
@@ -78,7 +78,7 @@ else if (Javastat==false && Browser=="Opera")
 	window.open("file:///Users/sdu17/Documents/JavaWorkspace/ElectricityUse/BrowserRec/pDownload.html");
 }
 
-//if old plug-in - "upgrade" 
+//if old plug-in - "upgrade plug-in" html page opens
 if (Java=="changeJava" && Browser!=="Chrome")
 	{
 	alert("You need to update your Java plug-in");
