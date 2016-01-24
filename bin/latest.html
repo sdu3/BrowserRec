@@ -6,7 +6,7 @@
 </head>
 <body>
   <h1>Electricity Use Program</h1>
-  <p1>Calculate your computer's electricity use</p1>
+  <p1 id="instructions">Calculate your computer's electricity use</p1>
   <p><applet code="ElecUse2.class" height="300" width="400">
     This is where ElecUse2.class should run.
   </applet></p>
@@ -56,13 +56,13 @@ if (isOpera==true){
 if (Browser == "Chrome")
 {
 	alert("You need to switch a browser");
-	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/bSwitch.html");
+	window.open("file:///Users/sdu17/Documents/JavaWorkspace/ElectricityUse/BrowserRec/bSwitch.html");
 }
 
 else if (Browser == "Safari") 
 {
 	alert("You need to switch a browser");
-	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/bSwitch.html");
+	window.open("file:///Users/sdu17/Documents/JavaWorkspace/ElectricityUse/BrowserRec/bSwitch.html");
 }
 
 //if no plug-in (and browser is correct) - "download plug-in" html page opens
@@ -75,14 +75,14 @@ if (Javastat==false && Browser=="Firefox")
 else if (Javastat==false && Browser=="Opera")
 {
 	alert("You need to download the Java plug-in");
-	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/pDownload.html");
+	window.open("file:///Users/sdu17/Documents/JavaWorkspace/ElectricityUse/BrowserRec/pDownload.html");
 }
 
 //if old plug-in - "upgrade" 
 if (Java=="changeJava" && Browser!=="Chrome")
 	{
 	alert("You need to update your Java plug-in");
-	window.open("file:///Users/sdu17/Documents/DA%20Junior%20Year%202015-16/AP%20CS/Java/BrowserRec/pUpgrade.html");
+	window.open("file:///Users/sdu17/Documents/JavaWorkspace/ElectricityUse/BrowserRec/pUpgrade.html");
 	}
 
 
